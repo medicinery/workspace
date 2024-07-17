@@ -1,28 +1,41 @@
 {
-  "name": "workspace",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
-  },
-  "devDependencies": {
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "@typescript-eslint/eslint-plugin": "^7.15.0",
-    "@typescript-eslint/parser": "^7.15.0",
-    "@vitejs/plugin-react": "^4.3.1",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-react-refresh": "^0.4.7",
-    "typescript": "^5.2.2",
-    "vite": "^5.3.4"
-  }
+   "name": "workspace",
+   "private": true,
+   "version": "0.0.0",
+   "type": "module",
+   "scripts": {
+      "dev": "vite",
+      "preview": "vite preview",
+      "build": "npm run ts-check && vite build",
+      "ts-check": "tsc --noEmit",
+      "amend": "git add . && git commit --amend --no-edit && git push origin main -f",
+      "e-amend": "git add . && git commit --amend && git push origin main -f",
+      "d-amend": "npm run amend && npm run gdeploy",
+      "pretty": "prettier --config .prettierrc --write ./src/**/*.{ts,tsx,tsx,scss}",
+      "gdeploy": "npm run ts-check && git push origin main && git update-ref -d refs/heads/production && git checkout -b production && git push origin production -f && git checkout main",
+      "deploy": "rm -rf build && npm run build && firebase deploy",
+      "prepare": "husky"
+   },
+   "dependencies": {
+      "common-react-toolkit": "^8.2.2",
+      "firebase": "^10.12.3",
+      "lucide-react": "^0.408.0",
+      "nanoid": "^5.0.7",
+      "react": "^18.3.1",
+      "react-dom": "^18.3.1",
+      "react-router-dom": "^6.25.0"
+   },
+   "devDependencies": {
+      "@types/react": "^18.3.3",
+      "@types/react-dom": "^18.3.0",
+      "@typescript-eslint/eslint-plugin": "^7.15.0",
+      "@typescript-eslint/parser": "^7.15.0",
+      "@vitejs/plugin-react": "^4.3.1",
+      "eslint": "^8.57.0",
+      "eslint-plugin-react-hooks": "^4.6.2",
+      "eslint-plugin-react-refresh": "^0.4.7",
+      "sass": "^1.77.8",
+      "typescript": "^5.2.2",
+      "vite": "^5.3.4"
+   }
 }

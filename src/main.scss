@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&display=swap");
+
+* {
+   box-sizing: border-box;
+   font-family: Poppins, Public Sans;
+   color: var(--textSlate1-color);
+   border-color: var(--highlight-color);
+   transition: all 150ms ease-in-out;
+   user-select: none;
+   scroll-behavior: smooth;
+   -webkit-user-drag: none;
+   -webkit-tap-highlight-color: transparent;
+   letter-spacing: -0.1px;
+   outline: none;
+}
+
+::selection {
+   background: var(--primary10-color);
+}
+
+:root {
+   --primary-color: transparent;
+   --background-color: transparent;
+   --highlight-color: transparent;
+   --border-color: transparent;
+   --textHighlight-color: transparent;
+   --red-color: transparent;
+   --red5-color: transparent;
+   --red10-color: transparent;
+   --primary-color: transparent;
+   --primary3-color: transparent;
+   --primary5-color: transparent;
+   --primary10-color: transparent;
+   --green-color: transparent;
+   --green5-color: transparent;
+   --green10-color: transparent;
+   --gray-color: transparent;
+   --gray5-color: transparent;
+   --gray10-color: transparent;
+   --textSlate1-color: transparent;
+   --textSlate2-color: transparent;
+   --textSlate3-color: transparent;
+
+   --tableRowHighlight: #b7b7b7;
+}
+
+// ::-webkit-scrollbar-thumb {
+// 	width: 10px;
+// 	border: 2px solid transparent;
+// 	border-radius: 100px;
+// 	background-color: var(--gray-color);
+// 	background-clip: content-box;
+// }
+
+// ::-webkit-scrollbar {
+// 	width: 10px;
+// 	padding: 0;
+// }
+
+// ::-webkit-scrollbar-track {
+// 	width: 5px;
+// 	background: var(--background-color);
+// }
+
+html,
+body {
+   margin: 0;
+   width: 100%;
+   height: 100%;
+   transition: none;
+   background-color: var(--background-color);
+   outline-color: var(--primary-color);
+}
+
+#root {
+   height: 100%;
+}
+
+a {
+   text-decoration: none;
+}
+
+img[src=""] {
+   opacity: 0;
+   transition-duration: 0ms !important;
+}
+
+.SonnerNotification {
+   z-index: 1e8;
+}
