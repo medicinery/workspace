@@ -1,3 +1,7 @@
 export default function Welcome() {
-   return <div>Welcome Component</div>
+   return (
+      <div>
+         <div className="font-bold">Welcome to medicinery</div>
+      </div>
+   )
 }
