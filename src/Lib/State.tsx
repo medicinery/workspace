@@ -1,4 +1,5 @@
 import { makeIDBDatabaseStore, makeStore } from "common-react-toolkit"
+import { Chat_t } from "./Models/Chat"
 import { Organization_t } from "./Models/Organization"
 import { User_t } from "./Models/Users"
 
@@ -22,6 +23,13 @@ export const [usersStore, useUsers] = makeIDBDatabaseStore<User_t>({
 /* - Organizations */
 export const [organizationsStore, useOrganizations] = makeIDBDatabaseStore<Organization_t>({
    name: "organizations",
+   key: "id",
+   version: 1,
+})
+
+/* - Chats */
+export const [chatsStore, useChats] = makeIDBDatabaseStore<Chat_t>({
+   name: "chats",
    key: "id",
    version: 1,
 })
