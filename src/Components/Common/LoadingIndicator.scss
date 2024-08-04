@@ -1,14 +1,20 @@
-.LoadingIndicatorComponent {
-   $size: 1.5rem;
-
+@mixin fromSize($size) {
    border: calc(#{$size} / 7) solid var(--highlight-color, #fff);
    border-top: calc(#{$size} / 7) solid var(--text-color, #000);
    border-radius: 50%;
    width: $size;
    height: $size;
+}
+
+.LoadingIndicatorComponent {
+   display: inline-block;
    animation: spin 1s linear infinite;
 
-   display: inline-block;
+   @include fromSize(1.5rem);
+
+   &.small {
+      @include fromSize(1.1rem);
+   }
 }
 
 @keyframes spin {

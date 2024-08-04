@@ -1,5 +1,5 @@
 import "./LoadingIndicator.scss"
 
-export default function LoadingIndicator() {
-   return <div className="LoadingIndicatorComponent"></div>
+export default function LoadingIndicator(props: { small?: boolean }) {
+   return <div className={`LoadingIndicatorComponent ${props.small ? "small" : ""}`}></div>
 }
