@@ -20,6 +20,14 @@ export function generateID(): string {
    return customAlphabet("abcdefghijklmnopqrstuvwxyz0123456789", 12)() // 36^12 = 4.7e18 possible combinations
 }
 
+export function classNames(classes: string, conditionals: Record<string, boolean> = {}): string {
+   return (
+      classes +
+      " " +
+      Object.entries(conditionals).reduce((acc, [key, value]) => (value ? ` ${key}` : acc), "")
+   ).trim()
+}
+
 export function getDate(): Date {
    const date = new Date()
    return new Date(
