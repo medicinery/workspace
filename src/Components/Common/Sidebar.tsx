@@ -56,6 +56,8 @@ export default function Sidebar() {
    const [isCreating, setIsCreating] = useState(false)
    const [userName, userDP] = useUser((x) => [x?.name ?? "", x?.dp ?? ""])
 
+   // TODO: listen for chats
+
    const handleNewChat = useCallback(async () => {
       if (isCreating) return
       setIsCreating(true)
