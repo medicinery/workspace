@@ -67,7 +67,7 @@ export default function Sidebar() {
             {isSidebarHidden ? (
                <div
                   onClick={() => isSidebarHiddenStore.set(false)}
-                  className="flex justify-center items-center gap-2 w-[2rem] h-[2rem] rounded-full cursor-pointer bg-bg4 border border-bg4 hover:bg-bg5"
+                  className="mt-[1.2rem] flex justify-center items-center gap-2 w-[2rem] h-[2rem] rounded-full cursor-pointer bg-bg4 border border-bg4 hover:bg-bg5"
                >
                   <LucideSidebarOpen size={16} />
                </div>
