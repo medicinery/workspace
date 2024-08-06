@@ -1,5 +1,6 @@
 /* --- Flagable constants --- */
 
+export const GITHUB_URI = "https:/github.com/medicinery"
 export const BASE_URL = "TODO: YET TO BE DECIDED"
 export const IS_DEBUG = process.env.NODE_ENV === "development"
 

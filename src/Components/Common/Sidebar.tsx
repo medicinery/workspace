@@ -1,8 +1,15 @@
 import { If, makeStore } from "common-react-toolkit"
-import { LucideMessageCircle, LucidePlus, LucideSidebarClose, LucideSidebarOpen } from "lucide-react"
+import {
+   LucideGithub,
+   LucideMessageCircle,
+   LucidePlus,
+   LucideSidebarClose,
+   LucideSidebarOpen,
+} from "lucide-react"
 import { useCallback, useState } from "react"
 import { useParams } from "react-router-dom"
 import { logout } from "../../Lib/Auth"
+import { GITHUB_URI } from "../../Lib/Constants"
 import { ChatsDB } from "../../Lib/Models/Chat"
 import { useChats, useUser } from "../../Lib/State"
 import { classNames } from "../../Lib/Utilites"
@@ -105,6 +112,12 @@ export default function Sidebar() {
                            className="flex justify-center items-center gap-2 w-[2.3rem] h-[2.3rem] rounded-full cursor-pointer bg-bg4 border border-bg4 hover:bg-bg5"
                         >
                            <LucideSidebarClose size={16} />
+                        </div>
+                        <div
+                           onClick={() => window.open(GITHUB_URI, "_blank")}
+                           className="flex justify-center items-center gap-2 w-[2.3rem] h-[2.3rem] rounded-full cursor-pointer bg-bg4 border border-bg4 hover:bg-bg5"
+                        >
+                           <LucideGithub size={16} />
                         </div>
                         <div
                            onClick={handleNewChat}
