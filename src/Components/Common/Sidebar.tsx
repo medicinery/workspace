@@ -101,6 +101,12 @@ export default function Sidebar() {
                      <div className="text-text1 font-semibold text-xl">Chats</div>
                      <div className="flex items-center gap-2">
                         <div
+                           onClick={() => isSidebarHiddenStore.set(true)}
+                           className="flex justify-center items-center gap-2 w-[2.3rem] h-[2.3rem] rounded-full cursor-pointer bg-bg4 border border-bg4 hover:bg-bg5"
+                        >
+                           <LucideSidebarClose size={16} />
+                        </div>
+                        <div
                            onClick={handleNewChat}
                            className={classNames(
                               "flex items-center gap-2 px-3 py-[0.5rem] rounded-full cursor-pointer bg-bg4 border border-bg4 hover:bg-bg5",
@@ -115,12 +121,6 @@ export default function Sidebar() {
                               <LucidePlus className="-mt-[1px]" size={18} />
                            )}
                            <span className="text-[0.8rem] font-medium text-nowrap">New chat</span>
-                        </div>
-                        <div
-                           onClick={() => isSidebarHiddenStore.set(true)}
-                           className="flex justify-center items-center gap-2 w-[2.3rem] h-[2.3rem] rounded-full cursor-pointer bg-bg4 border border-bg4 hover:bg-bg5"
-                        >
-                           <LucideSidebarClose size={16} />
                         </div>
                      </div>
                   </div>
