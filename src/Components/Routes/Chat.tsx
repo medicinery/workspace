@@ -1,5 +1,13 @@
 import { onUpdate } from "common-react-toolkit"
-import { LucideAward, LucideCalendarCheck, LucideLanguages, LucideSend } from "lucide-react"
+import {
+   LucideAward,
+   LucideBlinds,
+   LucideCalendarCheck,
+   LucideCalendarClock,
+   LucideContact,
+   LucideLanguages,
+   LucideSend,
+} from "lucide-react"
 import { useCallback, useState } from "react"
 import { useParams } from "react-router-dom"
 import { ChatMessage_t, ChatMessageRole, ChatsDB } from "../../Lib/Models/Chat"
@@ -225,8 +233,26 @@ namespace Components {
                   </div>
                </div>
             </div>
-            <div className="text-[0.75rem] text-center py-2 border rounded-2xl cursor-pointer border-bg4 bg-bg3 hover:bg-bg4">
-               Details
+            <div className="flex items-center gap-1">
+               <div
+                  title="Get details about the doctor"
+                  className="w-full flex items-center justify-center gap-2 py-2 border rounded-2xl cursor-pointer border-bg5 bg-bg4 hover:bg-bg5"
+               >
+                  <LucideBlinds size={15} />
+                  <span className="text-[0.75rem]">Details</span>
+               </div>
+               <div
+                  title="Schedule an appointment with the doctor on Calendly"
+                  className="w-[3rem] flex items-center justify-center gap-2 py-2 border rounded-2xl cursor-pointer border-bg5 bg-bg4 hover:bg-bg5"
+               >
+                  <LucideCalendarClock size={15} />
+               </div>
+               <div
+                  title="Get contact information of the doctor"
+                  className="w-[3rem] flex items-center justify-center gap-2 py-2 border rounded-2xl cursor-pointer border-bg5 bg-bg4 hover:bg-bg5"
+               >
+                  <LucideContact size={15} />
+               </div>
             </div>
          </div>
       )

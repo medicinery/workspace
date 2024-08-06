@@ -84,7 +84,7 @@ export default function Sidebar() {
                <div></div>
             )}
             <div
-               className="font-semibold text-text1 text-center rotate-180 opacity-50 w-[2rem]"
+               className="font-semibold text-text1 text-center rotate-180 opacity-50 w-[2.3rem]"
                style={{ writingMode: "vertical-lr" }}
             >
                Medicinery
