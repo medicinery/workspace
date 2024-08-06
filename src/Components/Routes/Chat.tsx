@@ -81,6 +81,7 @@ const messages: ChatMessage_t[] = [
                dp: "placeholder1.jpg", // Replace with image from UI Faces
                name: "Dr. Emily Carter",
                role: "General Practitioner",
+               appointmentURL: "",
                profile: {
                   specialization: "General Medicine",
                   education: "MD from Harvard Medical School",
@@ -110,6 +111,8 @@ const messages: ChatMessage_t[] = [
                dp: "placeholder4.jpg", // Replace with image from UI Faces
                name: "Dr. Michael Brown",
                role: "Cardiologist",
+
+               appointmentURL: "",
                profile: {
                   specialization: "Cardiology",
                   education: "MD from Stanford University",
@@ -139,6 +142,8 @@ const messages: ChatMessage_t[] = [
                dp: "placeholder5.jpg", // Replace with image from UI Faces
                name: "Dr. Sarah Lee",
                role: "Pediatrician",
+
+               appointmentURL: "",
                profile: {
                   specialization: "Pediatrics",
                   education: "MD from Johns Hopkins University",
@@ -168,6 +173,8 @@ const messages: ChatMessage_t[] = [
                dp: "placeholder5.jpg", // Replace with image from UI Faces
                name: "Dr. Sarah Lee",
                role: "Pediatrician",
+
+               appointmentURL: "",
                profile: {
                   specialization: "Pediatrics",
                   education: "MD from Johns Hopkins University",
@@ -244,6 +251,7 @@ namespace Components {
                <div
                   title="Schedule an appointment with the doctor on Calendly"
                   className="w-[3rem] flex items-center justify-center gap-2 py-2 border rounded-2xl cursor-pointer border-bg5 bg-bg4 hover:bg-bg5"
+                  onClick={() => window.open(props.doctor.appointmentURL, "_blank")}
                >
                   <LucideCalendarClock size={15} />
                </div>

@@ -19,6 +19,8 @@ export type Doctor_t = {
    name: string
    role: string
 
+   appointmentURL: string
+
    profile: {
       specialization: string
       education: string
