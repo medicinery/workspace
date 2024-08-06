@@ -353,8 +353,8 @@ namespace Components {
                   })}
                >
                   <LucideSend
-                     color={isSendingMessage ? "#ffffffa0" : messageContent.trim() ? "#fff" : "#ffffffa0"}
-                     size={18}
+                     color={isSendingMessage ? "#ffffffa0" : messageContent.trim() ? "black" : "#ffffffa0"}
+                     size={16}
                      className="-ml-[1px]"
                   />
                </div>
