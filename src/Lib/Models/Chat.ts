@@ -47,6 +47,10 @@ class _Chats extends Model<Chat_t> {
    async Delete(id: string) {
       throw new Error("Method not implemented.")
    }
+
+   async SendMessage(chatID: string, message: string) {
+      throw new Error("Method not implemented.")
+   }
 }
 
 //----------------------------------------------------------------------------------------------

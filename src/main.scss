@@ -5,6 +5,11 @@
 @tailwind components;
 @tailwind utilities;
 
+#root {
+   height: 100vh;
+   overflow-y: auto;
+}
+
 .SonnerNotification {
    z-index: 1e8;
 }
