@@ -232,16 +232,26 @@ namespace Components {
       )
    }
 
+   function DoctorsSuggestions(props: { doctors: Doctor_t[] }) {
+      if (!props.doctors.length) return null
+
+      return (
+         <div className="w-full grid grid-cols-[repeat(auto-fill,minmax(15rem,1fr))] gap-2">
+            {props.doctors.map((x: Doctor_t) => (
+               <DoctorCard key={x.id} doctor={x} />
+            ))}
+         </div>
+      )
+   }
+
    function MessageSuggestions(props: { suggestions: ChatMessage_t["suggestions"] }) {
       if (!Object.keys(props.suggestions).length) return null
 
+      const isDoctorSuggested = !!props.suggestions["Doctors"]?.length
+
       return (
-         <div className="max-w-[80%]">
-            <div className="w-full grid grid-cols-[repeat(auto-fill,minmax(12rem,1fr))] gap-2 ml-[2.8rem]">
-               {props.suggestions["Doctors"]?.map((x: Doctor_t) => (
-                  <DoctorCard key={x.id} doctor={x} />
-               ))}
-            </div>
+         <div className="max-w-[80%] ml-[2.8rem]">
+            {isDoctorSuggested && <DoctorsSuggestions doctors={props.suggestions["Doctors"]} />}
          </div>
       )
    }
@@ -294,7 +304,7 @@ namespace Components {
 
       return (
          <div className="flex justify-center h-full overflow-auto">
-            <div className="w-[65%] flex flex-col justify-end gap-2 h-full overflow-auto">
+            <div className="w-[65%] max-w-[48rem] flex flex-col justify-end gap-2 h-full overflow-auto">
                {messages.map((message) => (
                   <Message key={message.id} message={message} />
                ))}
@@ -326,7 +336,7 @@ namespace Components {
 
       return (
          <div className="pb-4 flex justify-center">
-            <div className="w-[65%] bg-bg2 rounded-2xl grid grid-cols-[1fr,min-content] gap-4 items-center p-2">
+            <div className="w-[65%] max-w-[48rem] bg-bg2 rounded-2xl grid grid-cols-[1fr,min-content] gap-4 items-center p-2">
                <input
                   type="text"
                   value={messageContent}

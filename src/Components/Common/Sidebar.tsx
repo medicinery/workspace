@@ -62,12 +62,12 @@ export default function Sidebar() {
    }, [isCreating])
 
    return (
-      <div className="h-full overflow-y-auto grid grid-cols-[2.5rem,1fr]">
+      <div className="h-full overflow-y-auto grid grid-cols-[2.8rem,1fr]">
          <div className="grid justify-center grid-rows-[4rem,1fr,4rem] py-4">
             {isSidebarHidden ? (
                <div
                   onClick={() => isSidebarHiddenStore.set(false)}
-                  className="mt-[1.2rem] flex justify-center items-center gap-2 w-[2rem] h-[2rem] rounded-full cursor-pointer bg-bg4 border border-bg4 hover:bg-bg5"
+                  className="mt-[1.2rem] flex justify-center items-center gap-2 w-[2.3rem] h-[2.3rem] rounded-full cursor-pointer bg-bg4 border border-bg4 hover:bg-bg5"
                >
                   <LucideSidebarOpen size={16} />
                </div>
