@@ -8,7 +8,6 @@ import { userStore } from "./State"
 
 export function initAuthListener() {
    onAuthStateChanged(auth, async (user) => {
-      console.log(user)
       if (!user) {
          userStore.set(null)
          return

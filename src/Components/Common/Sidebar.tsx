@@ -2,8 +2,9 @@ import { If, makeStore } from "common-react-toolkit"
 import { LucideMessageCircle, LucidePlus, LucideSidebarClose, LucideSidebarOpen } from "lucide-react"
 import { useCallback, useState } from "react"
 import { useParams } from "react-router-dom"
+import { logout } from "../../Lib/Auth"
 import { ChatsDB } from "../../Lib/Models/Chat"
-import { useChats } from "../../Lib/State"
+import { useChats, useUser } from "../../Lib/State"
 import { classNames } from "../../Lib/Utilites"
 import LoadingIndicator from "./LoadingIndicator"
 
@@ -46,6 +47,7 @@ export default function Sidebar() {
    const chatIDS = useChats((x) => Object.keys(x))
    const isSidebarHidden = useIsSidebarHidden()
    const [isCreating, setIsCreating] = useState(false)
+   const [userName, userDP] = useUser((x) => [x?.name ?? "", x?.dp ?? ""])
 
    const handleNewChat = useCallback(async () => {
       if (isCreating) return
@@ -62,7 +64,7 @@ export default function Sidebar() {
    }, [isCreating])
 
    return (
-      <div className="h-full overflow-y-auto grid grid-cols-[2.8rem,1fr]">
+      <div className="h-full overflow-y-auto grid grid-cols-[3.8rem,1fr]">
          <div className="grid justify-center grid-rows-[4rem,1fr,4rem] py-4">
             {isSidebarHidden ? (
                <div
@@ -79,6 +81,17 @@ export default function Sidebar() {
                style={{ writingMode: "vertical-lr" }}
             >
                Medicinery
+            </div>
+            <div
+               className="w-[2rem] h-[2rem] rounded-full mt-1"
+               title={`${userName} (click to logout)`}
+               onClick={logout}
+            >
+               <img
+                  src={userDP}
+                  alt=""
+                  className="w-full h-full rounded-full object-cover border border-bg5"
+               />
             </div>
          </div>
          {!isSidebarHidden && (
