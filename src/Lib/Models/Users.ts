@@ -35,7 +35,6 @@ class _Users extends Model<User_t> {
          dateCreated: getTimestamp(),
          dateUpdated: getTimestamp(),
          isVerified: false,
-         allowedPermissions: {},
       } as User_t
 
       await setDoc(doc(db, this.collection, data.id), data, { merge: true })
