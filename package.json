@@ -13,8 +13,7 @@
       "d-amend": "npm run amend && npm run gdeploy",
       "pretty": "prettier --config .prettierrc --write ./src/**/*.{ts,tsx,tsx,scss}",
       "gdeploy": "npm run ts-check && git push origin main && git update-ref -d refs/heads/production && git checkout -b production && git push origin production -f && git checkout main",
-      "deploy": "rm -rf build && npm run build && firebase deploy",
-      "prepare": "husky"
+      "deploy": "rm -rf build && npm run build && firebase deploy"
    },
    "dependencies": {
       "common-react-toolkit": "^8.2.2",
