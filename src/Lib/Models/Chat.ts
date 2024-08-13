@@ -1,3 +1,4 @@
+import { auth } from "../Firebase"
 import { Model } from "../Model"
 import { chatsStore } from "../State"
 
@@ -40,8 +41,20 @@ class _Chats extends Model<Chat_t> {
       return this._collection
    }
 
-   async Create() {
-      throw new Error("Method not implemented.")
+   async Create(): Promise<string> {
+      const idToken = (await auth.currentUser?.getIdToken()) ?? ""
+      if (!idToken) throw new Error("User not signed in")
+
+      const res = await fetch("http://localhost:5000/chat/create", {
+         method: "POST",
+         headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${idToken}`,
+         },
+         body: JSON.stringify({}),
+      })
+      const data = await res.json()
+      return data.id
    }
 
    async Delete(id: string) {

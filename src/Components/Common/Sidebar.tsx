@@ -7,7 +7,7 @@ import {
    LucideSidebarOpen,
 } from "lucide-react"
 import { useCallback, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { logout } from "../../Lib/Auth"
 import { GITHUB_URI } from "../../Lib/Constants"
 import { ChatsDB } from "../../Lib/Models/Chat"
@@ -25,6 +25,7 @@ const [isSidebarHiddenStore, useIsSidebarHidden] = makeStore(
 
 namespace Components {
    export function ChatTile(props: { id: string }) {
+      const navigate = useNavigate()
       const activeChatID = useParams().chatID || ""
 
       const chat = useChats((x) => x[props.id])
@@ -32,18 +33,17 @@ namespace Components {
 
       return (
          <div
+            onClick={() => navigate(`/${props.id}`)}
             className={`flex flex-col gap-2 px-4 py-3 rounded-lg cursor-pointer text-white border ${
                activeChatID ? "bg-bg3 border-bg4" : "bg-bg2 border-bg2 hover:bg-bg3"
             }`}
          >
             <div className="flex items-center gap-2">
                <LucideMessageCircle size={16} />
-               <span className="text-[0.95rem] font-semibold text-nowrap">New chat</span>
+               <span className="text-[0.95rem] font-semibold text-nowrap">{chat.title}</span>
             </div>
             <div className="overflow-hidden text-ellipsis whitespace-nowrap w-[16.2rem] text-sm text-text3">
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, et? Eligendi, dolorem
-               voluptatibus repudiandae magnam quia inventore distinctio nisi, id vero praesentium assumenda
-               dignissimos corrupti in quam temporibus recusandae debitis!
+               {chat.messages[chat.messages.length - 1].message}
             </div>
          </div>
       )
